@@ -1,0 +1,42 @@
+.header {
+  background-color: #5eced4;
+}
+
+.contenedorHeader {
+  display: flex;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.logo {
+  width: 7em;
+  border-radius: 100%;
+  margin: auto;
+}
+
+.navBar {
+  width: 90%;
+  margin-top: 3em;
+}
+
+.navBarList {
+  display: flex;
+  margin: auto;
+  list-style: none;
+  justify-content: center;
+}
+
+.navBarItem {
+  margin: 1em;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
