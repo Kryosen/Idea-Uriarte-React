@@ -1,7 +1,8 @@
+import CartWidget from "./CartWidget/CartWidget.jsx";
 import logoPagina from "./logoPagina.jpg";
 import "./NavBar.css";
 
-function Header() {
+function NavBar() {
   return (
     <header className="header">
       <div className="contenedorHeader">
@@ -25,9 +26,10 @@ function Header() {
             </li>
           </ul>
         </nav>
+        <CartWidget />
       </div>
     </header>
   );
 }
 
-export default Header;
+export default NavBar;

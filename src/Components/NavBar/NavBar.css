@@ -40,3 +40,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.CartIcon {
+  width: 4em;
+  height: 4em;
+  margin: auto;
+}
