@@ -1,8 +1,8 @@
 import { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
-import ItemListContainer from "./Components/NavBar/ItemLIstContainer/ItemListContainer";
+import ItemCount from "./Components/navbar/ItemCount/ItemCount";
+import ItemListContainer from "./Components/navbar/ItemlIstContainer/ItemListContainer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <ItemListContainer greeting={greeting} />
+      <ItemListContainer />
     </div>
   );
 }
