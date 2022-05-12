@@ -1,9 +1,18 @@
 import CartIcon from "./CartIcon.png";
 
-export default function CartWidget() {
-  const HolaEnConsole = () => console.log("Hola");
+function CartWidget() {
+  function holaEnConsola() {
+    console.log("Hola en consola");
+  }
 
   return (
-    <img src={CartIcon} className="f" alt="CartIcon" onClick={HolaEnConsole} />
+    <img
+      src={CartIcon}
+      className="CartIcon"
+      alt="CartIcon"
+      onClick={holaEnConsola}
+    />
   );
 }
+
+export default CartWidget;

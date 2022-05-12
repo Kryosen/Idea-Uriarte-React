@@ -1,6 +1,6 @@
-import CartWidget from "./cartwidget/CartWidget";
+import CartWidget from "./CartWidget/CartWidget";
 import logoPagina from "./logoPagina.jpg";
-import "./NavBar.css";
+import "./Navbar.css";
 
 function NavBar() {
   return (
