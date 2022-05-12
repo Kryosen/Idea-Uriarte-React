@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ItemCount.css";
 
-function ItemCount({ stck, inicial, onAdd }) {
+function ItemCount({ stck, inicial, onAdd, btnId }) {
   const [count, setCount] = useState(inicial);
   const [stock, setStock] = useState(stck);
+
+  useEffect(() => {
+    disableButton();
+  }, [stock]);
 
   function changeCount(cambiar) {
     if (cambiar === "sumar" && count < stock) {
@@ -14,17 +18,24 @@ function ItemCount({ stck, inicial, onAdd }) {
   }
 
   function agregarAlCarrito() {
-    setStock(stock - count);
-    setCount(1);
-    console.log(stock);
     if (stock >= 1) {
       // console.log(`Se agregaron ${count} packs al carrito`);
       onAdd(count);
     }
+    setStock(stock - count);
+    setCount(1);
 
     if (stock === 0) {
-      document.getElementById("botonAgregar").disabled = true;
-      document.getElementById("botonAgregar").innerText = "Sin Stock";
+      document.getElementById(`botonAgregar${btnId}`).disabled = true;
+      document.getElementById(`botonAgregar${btnId}`).innerText = "Sin Stock";
+    }
+  }
+
+  function disableButton() {
+    if (
+      document.getElementById(`botonAgregar${btnId}`).innerText === "Sin Stock"
+    ) {
+      document.getElementById(`botonAgregar${btnId}`).disabled = true;
     }
   }
 
@@ -47,10 +58,10 @@ function ItemCount({ stck, inicial, onAdd }) {
       </div>
       <button
         className="botonAgregar"
-        id="botonAgregar"
+        id={`botonAgregar${btnId}`}
         onClick={agregarAlCarrito}
       >
-        Agregar al Carrito
+        <>{stock === 0 ? "Sin Stock" : "Agregar al Carrito"}</>
       </button>
     </>
   );

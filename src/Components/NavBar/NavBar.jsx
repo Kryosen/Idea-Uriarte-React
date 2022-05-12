@@ -1,4 +1,4 @@
-import CartWidget from "./CartWidget/CartWidget.jsx";
+import CartWidget from "./cartwidget/CartWidget";
 import logoPagina from "./logoPagina.jpg";
 import "./NavBar.css";
 

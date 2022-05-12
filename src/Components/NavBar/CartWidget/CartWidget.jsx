@@ -4,11 +4,6 @@ export default function CartWidget() {
   const HolaEnConsole = () => console.log("Hola");
 
   return (
-    <img
-      src={CartIcon}
-      className="CartIcon"
-      alt="CartIcon"
-      onClick={HolaEnConsole}
-    />
+    <img src={CartIcon} className="f" alt="CartIcon" onClick={HolaEnConsole} />
   );
 }
