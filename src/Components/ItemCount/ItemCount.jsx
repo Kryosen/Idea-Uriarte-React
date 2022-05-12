@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./ItemCount.css";
 
-function ItemCount({ stck, inicial, onAdd, btnId }) {
+function ItemCount({ stck, inicial, onAdd, btnId, price }) {
   const [count, setCount] = useState(inicial);
   const [stock, setStock] = useState(stck);
 
@@ -9,11 +9,17 @@ function ItemCount({ stck, inicial, onAdd, btnId }) {
     disableButton();
   }, [stock]);
 
+  useEffect(() => {
+    document.getElementById(`precio${btnId}`).innerText = `$${price * count}`;
+  }, [count]);
+
   function changeCount(cambiar) {
     if (cambiar === "sumar" && count < stock) {
       setCount(count + 1);
+      document.getElementById(`precio${btnId}`).innerText = `$${price * count}`;
     } else if (cambiar === "restar" && count > 1) {
       setCount(count - 1);
+      document.getElementById(`precio${btnId}`).innerText = `$${price * count}`;
     }
   }
 

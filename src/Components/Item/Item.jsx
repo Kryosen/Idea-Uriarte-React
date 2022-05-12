@@ -7,8 +7,10 @@ function Item({ producto }) {
     <div>
       <img src={FotoPaquetes} alt="Foto Paquetes" />
       <p>{producto.name}</p>
+      <p id={`precio${producto.id}`}>{`$${producto.price}`}</p>
       <ItemCount
         btnId={producto.id}
+        price={producto.price}
         stck={producto.stock}
         inicial={1}
         onAdd={(cantidad) => {

@@ -70,12 +70,6 @@ function ItemListContainer() {
       .finally(() => setLoading(false));
   }, []);
 
-  const item = {
-    name: "Pack de 10 paquetes",
-    stock: 7,
-    id: 1,
-  };
-
   return (
     <div>
       {loading ? <h2>Loading...</h2> : <ItemList productos={productos} />}
