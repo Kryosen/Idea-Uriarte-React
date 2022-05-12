@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./ItemCount.css";
 
-function ItemCount() {
-  const [count, setCount] = useState(1);
-  const [stock, setStock] = useState(5);
+function ItemCount({ stck, inicial, onAdd }) {
+  const [count, setCount] = useState(inicial);
+  const [stock, setStock] = useState(stck);
 
   function changeCount(cambiar) {
     if (cambiar === "sumar" && count < stock) {
@@ -18,7 +18,8 @@ function ItemCount() {
     setCount(1);
     console.log(stock);
     if (stock >= 1) {
-      console.log(`Se agregaron ${count} packs al carrito`);
+      // console.log(`Se agregaron ${count} packs al carrito`);
+      onAdd(count);
     }
 
     if (stock === 0) {

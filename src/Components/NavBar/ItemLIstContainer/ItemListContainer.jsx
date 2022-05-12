@@ -13,7 +13,13 @@ function ItemListContainer() {
     <div>
       <img src={FotoPaquetes} alt="Foto Paquetes" />
       <p>{item.name}</p>
-      <ItemCount />
+      <ItemCount
+        stck={item.stock}
+        inicial={1}
+        onAdd={(cantidad) => {
+          console.log(`Se agregaron ${cantidad} packs al carrito`);
+        }}
+      />
     </div>
   );
 }
