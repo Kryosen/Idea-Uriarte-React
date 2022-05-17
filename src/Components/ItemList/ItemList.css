@@ -1,6 +1,8 @@
 .cajaProductos {
-  width: 45%;
+  width: 58%;
   margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
 img {

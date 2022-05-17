@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "stock": 7,
+    "category": "Mini-Packs",
+    "name": "Pack de 10 paquetes",
+    "price": 4500,
+    "image": "/Paquetes.jpg",
+    "description": "Pack de entregas por 10 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 450 por paquete"
+  },
+  {
+    "id": "2",
+    "stock": 5,
+    "category": "Mega-Packs",
+    "name": "Pack de 50 paquetes",
+    "price": 20000,
+    "image": "/Paquetes.jpg",
+    "description": "Pack de entregas por 50 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 400 por paquete"
+  },
+  {
+    "id": "3",
+    "stock": 0,
+    "category": "Mega-Packs",
+    "name": "Pack de 100 paquetes",
+    "price": 35000,
+    "image": "/Paquetes.jpg",
+    "description": "Pack de entregas por 100 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 350 por paquete"
+  },
+  {
+    "id": "4",
+    "stock": 2,
+    "category": "Mini-Packs",
+    "name": "Pack de 20 paquetes",
+    "price": 9000,
+    "image": "/Paquetes.jpg",
+    "description": "Pack de entregas por 20 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 450 por paquete"
+  },
+  {
+    "id": "5",
+    "stock": 10,
+    "category": "Mega-Packs",
+    "name": "Pack de 200 paquetes",
+    "price": 70000,
+    "image": "/Paquetes.jpg",
+    "description": "Pack de entregas por 200 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 350 por paquete"
+  },
+  {
+    "id": "6",
+    "stock": 0,
+    "category": "Mini-Packs",
+    "name": "Pack de 5 paquetes",
+    "price": 2250,
+    "image": "/Paquetes.jpg",
+    "description": "Pack de entregas por 5 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 450 por paquete"
+  }
+]

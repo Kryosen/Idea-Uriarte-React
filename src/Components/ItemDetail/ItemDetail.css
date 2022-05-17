@@ -1,0 +1,22 @@
+.detailedProduct {
+  margin: auto;
+}
+
+.cajaDetalle {
+  width: 55%;
+  margin: auto;
+}
+
+h3 {
+  font-size: 24px;
+  margin: 0.8em;
+}
+
+.descriptionProducto {
+  margin-bottom: 1em;
+}
+
+.precioProducto {
+  font-weight: bold;
+  font-size: 28px;
+}

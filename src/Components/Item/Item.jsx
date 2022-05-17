@@ -1,24 +1,17 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
+import "./Item.css";
 
 function Item({ producto }) {
   return (
-    <div>
+    <div className="cajasItems">
       <img src={FotoPaquetes} alt="Foto Paquetes" />
       <p>{producto.name}</p>
-      <p id={`precio${producto.id}`}>{`$${producto.price}`}</p>
-      <ItemCount
-        btnId={producto.id}
-        price={producto.price}
-        stck={producto.stock}
-        inicial={1}
-        onAdd={(cantidad) => {
-          console.log(
-            `Se agregaron ${cantidad} packs de "${producto.name}" al carrito`
-          );
-        }}
-      />
+      <Link to={`detalle/${producto.id}`}>
+        <button className="botonDetalle">Detalle del producto</button>
+      </Link>
     </div>
   );
 }
