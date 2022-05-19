@@ -9,7 +9,7 @@ function Item({ producto }) {
     <div className="cajasItems">
       <img src={FotoPaquetes} alt="Foto Paquetes" />
       <p>{producto.name}</p>
-      <Link to={`detalle/${producto.id}`}>
+      <Link to={`/detalle/${producto.id}`}>
         <button className="botonDetalle">Detalle del producto</button>
       </Link>
     </div>
