@@ -4,6 +4,7 @@ import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from "./Components/ItemlIstContainer/ItemListContainer";
 import NavBar from "./Components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,7 +20,7 @@ function App() {
             element={<ItemListContainer />}
           />
           <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
-
+          <Route path="/Cart" element={<Cart />} />
           <Route path="/*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

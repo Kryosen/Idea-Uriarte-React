@@ -4,9 +4,16 @@ import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
 import "./ItemDetail.css";
 
 function ItemDetail({ productos }) {
-  //   const [producto, setProducto] = useState(
-  //     productos.find((producto) => producto.id === "1")
-  //   );
+  const [amount, setAmount] = useState(0);
+  let whatava;
+
+  useEffect(() => {
+    console.log(amount);
+  }, [amount]);
+
+  function onAdd(cantidad) {
+    setAmount((prevCount) => prevCount + cantidad);
+  }
 
   return (
     <div className="cajaDetalle">
@@ -23,11 +30,8 @@ function ItemDetail({ productos }) {
           price={productos.price}
           stck={productos.stock}
           inicial={1}
-          onAdd={(cantidad) => {
-            console.log(
-              `Se agregaron ${cantidad} packs de "${productos.name}" al carrito`
-            );
-          }}
+          amount={amount}
+          onAdd={onAdd}
         />
       </div>
     </div>
