@@ -6,7 +6,9 @@
     "name": "Pack de 10 paquetes",
     "price": 4500,
     "image": "/Paquetes.jpg",
-    "description": "Pack de entregas por 10 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 450 por paquete"
+    "description": "Pack de entregas por 10 paquetes con un precio por paquete con descuento.\n",
+    "originalPrice": "Original: 600 por paquete\n",
+    "discountedPrice": "Descuento: 450 por paquete"
   },
   {
     "id": "2",
