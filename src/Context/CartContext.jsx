@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext([]);
 
@@ -9,9 +9,11 @@ const CartContextProvider = ({ children }) => {
 
   function addToCart(item) {
     if (cartContainsItem(item)) {
-      cartList[
-        cartList.findIndex((producto) => producto.id === item.id)
+      const cartCopy = [...cartList];
+      cartCopy[
+        cartCopy.findIndex((producto) => producto.id === item.id)
       ].cantidad += item.cantidad;
+      +setCartList(cartCopy);
     } else {
       setCartList([...cartList, item]);
     }

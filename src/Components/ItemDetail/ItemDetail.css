@@ -5,10 +5,13 @@
 .cajaDetalle {
   width: 55%;
   margin: auto;
+  margin-top: 2em;
+  border: 3px solid rgb(209, 208, 208);
+  padding-bottom: 1em;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 26px;
   margin: 0.8em;
 }
 
@@ -17,6 +20,16 @@ h3 {
 }
 
 .precioProducto {
+  margin-top: 1em;
   font-weight: bold;
   font-size: 28px;
+}
+
+.PriceDescription {
+  font-weight: bold;
+}
+
+.tituloDetalleProducto {
+  font-size: 36px;
+  margin: 0.8em;
 }

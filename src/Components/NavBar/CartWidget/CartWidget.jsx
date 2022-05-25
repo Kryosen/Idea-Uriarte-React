@@ -1,17 +1,27 @@
-import CartIcon from "./CartIcon.png";
+import { NavLink } from "react-router-dom";
+import { useCartContext } from "../../../Context/CartContext";
 
 function CartWidget() {
-  function holaEnConsola() {
-    console.log("Hola en consola");
+  const { cartList } = useCartContext();
+
+  function cantidadDeProductos() {
+    return cartList.reduce(
+      (previousValue, currentValue) => previousValue + currentValue.cantidad,
+      0
+    );
   }
 
   return (
-    <img
-      src={CartIcon}
-      className="CartIcon"
-      alt="CartIcon"
-      onClick={holaEnConsola}
-    />
+    <NavLink to="/Cart" className="linkCartIcon">
+      <div className="containerCartIcon">
+        {cantidadDeProductos() ? (
+          <h5 className="cartAmount"> {cantidadDeProductos()}</h5>
+        ) : (
+          <></>
+        )}
+        {/* <img src={CartIcon} className="CartIcon" alt="CartIcon" /> */}
+      </div>
+    </NavLink>
   );
 }
 

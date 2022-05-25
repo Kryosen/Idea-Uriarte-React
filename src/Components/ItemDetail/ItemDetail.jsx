@@ -14,8 +14,10 @@ function ItemDetail({ productos: producto }) {
     <div className="cajaDetalle">
       <div className="detailedProduct">
         <img src={FotoPaquetes} alt="Foto Paquetes" />
-        <h3>{producto.name}</h3>
+        <h3 className="tituloDetalleProducto">{producto.name}</h3>
         <p className="descriptionProducto">{producto.description}</p>
+        <p className="PriceDescription">{producto.originalPrice}</p>
+        <p className="PriceDescription">{producto.discountedPrice}</p>
         <p
           className="precioProducto"
           id={`precio${producto.id}`}

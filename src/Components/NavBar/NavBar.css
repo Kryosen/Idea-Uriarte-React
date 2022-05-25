@@ -43,7 +43,34 @@ a:hover {
 }
 
 .CartIcon {
-  width: 4.2em;
-  height: 4.2em;
+  width: 5em;
+  height: 5em;
   margin: auto;
+}
+
+.linkCartIcon {
+  width: 5em;
+  height: 5em;
+  margin: auto;
+}
+
+.containerCartIcon {
+  background-image: url(./CartWidget/CartIcon.png);
+  width: 5em;
+  height: 5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.cartAmount {
+  margin-left: 39%;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  background-color: #2faab1;
+  color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid #dadada;
 }

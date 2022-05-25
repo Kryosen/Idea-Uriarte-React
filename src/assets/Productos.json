@@ -17,7 +17,9 @@
     "name": "Pack de 50 paquetes",
     "price": 20000,
     "image": "/Paquetes.jpg",
-    "description": "Pack de entregas por 50 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 400 por paquete"
+    "description": "Pack de entregas por 50 paquetes con un precio por paquete con descuento.\n",
+    "originalPrice": "Original: 600 por paquete\n",
+    "discountedPrice": "Descuento: 400 por paquete"
   },
   {
     "id": "3",
@@ -26,7 +28,9 @@
     "name": "Pack de 100 paquetes",
     "price": 35000,
     "image": "/Paquetes.jpg",
-    "description": "Pack de entregas por 100 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 350 por paquete"
+    "description": "Pack de entregas por 100 paquetes con un precio por paquete con descuento: Original.\n",
+    "originalPrice": "Original: 600 por paquete\n",
+    "discountedPrice": "Descuento: 350 por paquete"
   },
   {
     "id": "4",
@@ -35,7 +39,9 @@
     "name": "Pack de 20 paquetes",
     "price": 9000,
     "image": "/Paquetes.jpg",
-    "description": "Pack de entregas por 20 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 450 por paquete"
+    "description": "Pack de entregas por 20 paquetes con un precio por paquete con descuento.\n",
+    "originalPrice": "Original: 600 por paquete\n",
+    "discountedPrice": "Descuento: 450 por paquete"
   },
   {
     "id": "5",
@@ -44,7 +50,9 @@
     "name": "Pack de 200 paquetes",
     "price": 70000,
     "image": "/Paquetes.jpg",
-    "description": "Pack de entregas por 200 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 350 por paquete"
+    "description": "Pack de entregas por 200 paquetes con un precio por paquete con descuento.\n",
+    "originalPrice": "Original: 600 por paquete\n",
+    "discountedPrice": "Descuento: 350 por paquete"
   },
   {
     "id": "6",
@@ -53,6 +61,8 @@
     "name": "Pack de 5 paquetes",
     "price": 2250,
     "image": "/Paquetes.jpg",
-    "description": "Pack de entregas por 5 paquetes con un precio por paquete con descuento: Original: 600 por paquete Con descuento: 450 por paquete"
+    "description": "Pack de entregas por 5 paquetes con un precio por paquete con descuento.\n",
+    "originalPrice": "Original: 600 por paquete\n",
+    "discountedPrice": "Descuento: 450 por paquete"
   }
 ]
