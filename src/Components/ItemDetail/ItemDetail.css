@@ -5,9 +5,10 @@
 .cajaDetalle {
   width: 55%;
   margin: auto;
-  margin-top: 2em;
   border: 3px solid rgb(209, 208, 208);
   padding-bottom: 1em;
+  box-shadow: 0px 8px 10px 0px rgb(190, 190, 190);
+  background-color: rgb(255, 255, 255);
 }
 
 h3 {
@@ -32,4 +33,10 @@ h3 {
 .tituloDetalleProducto {
   font-size: 36px;
   margin: 0.8em;
+}
+
+.ContenedorBody {
+  padding-top: 2em;
+  background-color: rgb(240, 238, 238);
+  height: 100vh;
 }

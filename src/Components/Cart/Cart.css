@@ -1,12 +1,22 @@
+.ContenedorBodyCarrito {
+  margin: auto;
+  padding-top: 2em;
+  background-color: rgb(240, 238, 238);
+  height: 100vh;
+}
+
 .ContenedorCarrito {
   width: 50%;
   margin: auto;
-  margin-top: 1.5em;
+  background-color: white;
+  padding-top: 0.3em;
+  padding-bottom: 0.8em;
+  box-shadow: 0px 5px 10px rgb(223, 229, 230);
 }
 
 .contenedorItemsCarrito {
   border: 3px solid rgb(219, 219, 219);
-  box-shadow: 5px 5px rgb(229, 235, 236);
+  box-shadow: 5px 5px 5px rgb(229, 235, 236);
   padding: 1em;
   display: flex;
   margin: 0.8em;
@@ -55,6 +65,9 @@
 
 .ContenedorBotonEliminar {
   margin: auto;
+  width: 3em;
+  height: 3em;
+  line-height: 4em;
 }
 
 .botonEliminarProducto {
@@ -66,4 +79,19 @@
 
 .prices {
   color: #414040;
+}
+
+.FotoBin {
+  width: 2em;
+}
+
+.FotoBin:hover {
+  cursor: pointer;
+}
+
+.ContenedorBotonEliminar:hover {
+  background-color: rgb(219, 219, 219);
+  color: #ffffff;
+  border-radius: 50%;
+  /* border: 1px solid #414040; */
 }

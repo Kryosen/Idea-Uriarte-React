@@ -28,14 +28,14 @@
 
 .navBarItem {
   margin: 1em;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-align: center;
   margin-top: 0;
 }
 
 a {
   text-decoration: none;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
 }
 
 a:hover {
@@ -68,9 +68,64 @@ a:hover {
   width: 2em;
   height: 2em;
   line-height: 2em;
-  background-color: #2faab1;
+  background-color: #d4645e;
   color: #ffffff;
   border-radius: 50%;
   text-align: center;
   border: 1px solid #dadada;
+}
+
+.cartAmount:hover {
+  text-decoration: none;
+  font-style: none;
+}
+
+.linkCartIcon:hover {
+  text-decoration: none;
+}
+
+.navBarLink:hover {
+  text-decoration: none;
+}
+
+.custom-btnNav {
+  /* width: 130px; */
+  /* height: 40px; */
+  font-size: 28px;
+  padding: 10px 25px;
+  border: 2px solid #5eced4;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-13 {
+  background: #5eced4;
+  color: #fff;
+  z-index: 1;
+}
+.btn-13:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+.btn-13:hover {
+  color: #5eced4;
+}
+.btn-13:hover:after {
+  top: 0;
+  height: 100%;
+}
+.btn-13:active {
+  top: 2px;
 }

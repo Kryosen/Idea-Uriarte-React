@@ -3,6 +3,7 @@
   margin: auto;
   display: grid;
   grid-template-columns: auto auto auto;
+  background-color: rgb(240, 238, 238);
 }
 
 img {

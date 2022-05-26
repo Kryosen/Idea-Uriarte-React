@@ -3,3 +3,67 @@ p {
   margin: 5px;
   font-size: 24px;
 }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes antispin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+@keyframes antispin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin: auto;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #5eced4;
+  border-bottom: 16px solid #5eced4;
+  border-left: 16px solid rgb(255, 255, 255);
+  border-right: 16px solid rgb(255, 255, 255);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+.logoCargando {
+  width: 5.5em;
+  border-radius: 50%;
+  border: 1px solid rgb(247, 247, 247);
+  /* position: absolute;
+  top: 15.1%;
+  left: 48.3%; */
+  -webkit-animation: antispin 2s linear infinite;
+  animation: antispin 3s linear infinite;
+}

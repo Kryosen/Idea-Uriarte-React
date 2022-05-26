@@ -2,6 +2,7 @@ import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import logoPagina from "../navbar/logoPAgina.jpg";
 
 function ItemListContainer() {
   const [productos, setProductos] = useState([]);
@@ -31,13 +32,20 @@ function ItemListContainer() {
           .then((respuesta) => respuesta.json())
           .then((res) => setProductos(res))
           .finally(() => setLoading(false));
-      }, 2000);
+      }, 3000);
     }, [categoriaId]);
   }
 
   return (
-    <div>
-      {loading ? <h2>Loading...</h2> : <ItemList productos={productos} />}
+    <div className="ContenedorBody">
+      {/* {loading ? <h2>Loading...</h2> : <ItemList productos={productos} />} */}
+      {loading ? (
+        <div class="loader">
+          <img src={logoPagina} className="logoCargando" alt="logo" />
+        </div>
+      ) : (
+        <ItemList productos={productos} />
+      )}
     </div>
   );
 }

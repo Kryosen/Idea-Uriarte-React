@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import logoPagina from "../navbar/logoPAgina.jpg";
 
 function ItemDetailContainer() {
   const [productos, setProductos] = useState([]);
@@ -28,8 +29,14 @@ function ItemDetailContainer() {
   }, []);
 
   return (
-    <div>
-      {loading ? <h2>Loading...</h2> : <ItemDetail productos={productos} />}
+    <div className="ContenedorBody">
+      {loading ? (
+        <div class="loader">
+          <img src={logoPagina} className="logoCargando" alt="logo" />
+        </div>
+      ) : (
+        <ItemDetail productos={productos} />
+      )}
     </div>
   );
 }

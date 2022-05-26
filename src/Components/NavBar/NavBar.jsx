@@ -13,10 +13,14 @@ function NavBar() {
         <nav className="navBar">
           <ul className="navBarList">
             <li className="navBarItem">
-              <NavLink to="/categoria/Mini-Packs">Mini-Packs</NavLink>
+              <NavLink to="/categoria/Mini-Packs" className="navBarLink">
+                <button className="custom-btnNav btn-13">Mini-Packs</button>
+              </NavLink>
             </li>
             <li className="navBarItem">
-              <NavLink to="/categoria/Mega-Packs">Mega-Packs</NavLink>
+              <NavLink to="/categoria/Mega-Packs" className="navBarLink">
+                <button className="custom-btnNav btn-13">Mega-Packs</button>
+              </NavLink>
             </li>
 
             {/* <li className="navBarItem">
