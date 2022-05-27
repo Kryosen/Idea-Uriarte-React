@@ -5,10 +5,14 @@ export default function ButtonsEnd() {
   return (
     <>
       <Link to="/Cart">
-        <button className="botonAgregar">Finalizar Compra</button>
+        <button className="custom-btnFinalCart btnFinalCart">
+          Finalizar Compra
+        </button>
       </Link>
       <Link to="/">
-        <button className="botonAgregar">Seguir Comprando</button>
+        <button className="custom-btnFinalContinue btnFinalContinue">
+          Seguir Comprando
+        </button>
       </Link>
     </>
   );

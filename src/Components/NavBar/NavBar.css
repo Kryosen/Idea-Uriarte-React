@@ -12,6 +12,7 @@
   width: 7em;
   border-radius: 100%;
   margin: auto;
+  margin-top: 0.5em;
 }
 
 .navBar {
@@ -64,10 +65,12 @@ a:hover {
 }
 
 .cartAmount {
-  margin-left: 39%;
-  width: 2em;
-  height: 2em;
-  line-height: 2em;
+  font-size: 16px;
+  margin-left: 40%;
+  padding-right: 1.45%;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.33em;
   background-color: #d4645e;
   color: #ffffff;
   border-radius: 50%;
@@ -128,4 +131,19 @@ a:hover {
 }
 .btn-13:active {
   top: 2px;
+}
+
+.containerCartIcon:hover {
+  animation: moveUp 0.5s infinite;
+  animation-direction: alternate;
+  /* transform: translateY(-5px); */
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
 }

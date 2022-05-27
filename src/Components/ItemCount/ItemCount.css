@@ -40,8 +40,8 @@
 
 .contadorBotones {
   font-size: 20px;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 38px;
+  padding-right: 38px;
   border: 1px solid #c9c9c9;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -49,6 +49,133 @@
   margin: 0;
   height: 29px;
   padding-top: 3px;
+}
+
+.custom-btnAgregar:enabled {
+  /* width: 130px; */
+  height: 40px;
+  padding: 5px 5px;
+  border: 2px solid #5eced4;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 0.1em;
+}
+
+.custom-btnAgregar:disabled {
+  /* width: 130px; */
+  height: 40px;
+  padding: 5px 5px;
+  background: #d4645e !important;
+  border: 2px solid #d4645e;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 0.1em;
+  color: #1f1f1f;
+}
+
+.btnAgregar {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btnAgregar:hover:enabled {
+  background: #5eced4;
+  color: #fff;
+}
+
+.btnAgregar:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+}
+
+.custom-btnFinalCart {
+  /* width: 130px; */
+  margin: 0.3em;
+  height: 40px;
+  padding: 5px 5px;
+  border: 2px solid #5eced4;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 0.1em;
+}
+
+.custom-btnFinalContinue {
+  /* width: 130px; */
+  margin: 0.3em;
+  height: 40px;
+  padding: 5px 5px;
+  border: 2px solid #a5eff3;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 0.1em;
+}
+
+.btnFinalCart {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btnFinalCart:hover {
+  background: #5eced4;
+  color: #fff;
+}
+.btnFinalCart:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+}
+
+.btnFinalContinue {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btnFinalContinue:hover {
+  background: #c3f2f5;
+  color: rgb(0, 0, 0);
+}
+.btnFinalContinue:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
 }
 
 .botonAgregar {

@@ -63,7 +63,10 @@ function Cart() {
                   0
                 )}
             </h2>
-            <button onClick={emptyCart} className="botonAgregar">
+            <button
+              onClick={emptyCart}
+              className="custom-btnEmptyCart btnEmptyCart"
+            >
               Vaciar Carrito
             </button>
           </>

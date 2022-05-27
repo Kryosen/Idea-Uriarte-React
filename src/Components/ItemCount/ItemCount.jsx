@@ -78,7 +78,7 @@ function ItemCount({ stck, inicial, onAdd, btnId, price }) {
             </button>
           </div>
           <button
-            className="botonAgregar"
+            className="custom-btnAgregar btnAgregar"
             id={`botonAgregar${btnId}`}
             onClick={agregarAlCarrito}
           >

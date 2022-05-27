@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import CartWidget from "./CartWidget/CartWidget";
 import logoPagina from "./logoPagina.jpg";
 import "./Navbar.css";
@@ -14,7 +14,9 @@ function NavBar() {
           <ul className="navBarList">
             <li className="navBarItem">
               <NavLink to="/categoria/Mini-Packs" className="navBarLink">
-                <button className="custom-btnNav btn-13">Mini-Packs</button>
+                <button className="custom-btnNav btn-13 miniPacks">
+                  Mini-Packs
+                </button>
               </NavLink>
             </li>
             <li className="navBarItem">
