@@ -8,8 +8,6 @@ import Cart from "./Components/Cart/Cart";
 import CartContextProvider from "./Context/CartContext";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <BrowserRouter>
       <CartContextProvider>

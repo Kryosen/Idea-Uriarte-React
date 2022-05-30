@@ -13,12 +13,18 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { useCartContext } from "../../Context/CartContext";
 
 function ItemListContainer() {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { categoriaId } = useParams();
+  const { categoryIdParams, setCategoryIdParams } = useCartContext();
+
+  useEffect(() => {
+    setCategoryIdParams(categoriaId);
+  }, [categoriaId]);
 
   useEffect(() => {
     setLoading(true);

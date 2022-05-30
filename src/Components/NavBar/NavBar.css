@@ -147,3 +147,8 @@ a:hover {
     transform: translateY(-5px);
   }
 }
+
+.activeNav {
+  background: #ffffff;
+  color: #5eced4;
+}

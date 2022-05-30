@@ -74,7 +74,9 @@ function Cart() {
           <>
             <h2 className="tituloProducto">No hay items en el Carrito</h2>
             <Link to="/">
-              <button className="botonAgregar">Voler al Menu de compras</button>
+              <button className="custom-btnEmpty btnEmpty">
+                Voler al Menu de compras
+              </button>
             </Link>
           </>
         )}

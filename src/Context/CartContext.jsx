@@ -6,6 +6,7 @@ export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
+  const [categoryIdParams, setCategoryIdParams] = useState("");
 
   function addToCart(item) {
     if (cartContainsItem(item)) {
@@ -13,7 +14,7 @@ const CartContextProvider = ({ children }) => {
       cartCopy[
         cartCopy.findIndex((producto) => producto.id === item.id)
       ].cantidad += item.cantidad;
-      +setCartList(cartCopy);
+      setCartList(cartCopy);
     } else {
       setCartList([...cartList, item]);
     }
@@ -33,6 +34,10 @@ const CartContextProvider = ({ children }) => {
     setCartList([]);
   }
 
+  function updateCantidadDisponible() {
+    setcantidadDisponible();
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -40,6 +45,8 @@ const CartContextProvider = ({ children }) => {
         addToCart,
         emptyCart,
         removeItemCart,
+        categoryIdParams,
+        setCategoryIdParams,
       }}
     >
       {children}

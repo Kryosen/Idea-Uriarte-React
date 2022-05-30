@@ -1,9 +1,19 @@
+import { useEffect, useState } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
+import { useCartContext } from "../../Context/CartContext";
 import CartWidget from "./CartWidget/CartWidget";
 import logoPagina from "./logoPagina.jpg";
 import "./Navbar.css";
 
 function NavBar() {
+  const { categoryIdParams } = useCartContext();
+
+  // console.log(categoryIdParams === "Mega-Packs");
+
+  // useEffect(() => {
+
+  // }, []);
+
   return (
     <header className="header">
       <div className="contenedorHeader">
@@ -14,14 +24,28 @@ function NavBar() {
           <ul className="navBarList">
             <li className="navBarItem">
               <NavLink to="/categoria/Mini-Packs" className="navBarLink">
-                <button className="custom-btnNav btn-13 miniPacks">
+                <button
+                  className={
+                    categoryIdParams === "Mini-Packs"
+                      ? "activeNav custom-btnNav btn-13"
+                      : "custom-btnNav btn-13"
+                  }
+                >
                   Mini-Packs
                 </button>
               </NavLink>
             </li>
             <li className="navBarItem">
               <NavLink to="/categoria/Mega-Packs" className="navBarLink">
-                <button className="custom-btnNav btn-13">Mega-Packs</button>
+                <button
+                  className={
+                    categoryIdParams === "Mega-Packs"
+                      ? "activeNav custom-btnNav btn-13"
+                      : "custom-btnNav btn-13"
+                  }
+                >
+                  Mega-Packs
+                </button>
               </NavLink>
             </li>
 

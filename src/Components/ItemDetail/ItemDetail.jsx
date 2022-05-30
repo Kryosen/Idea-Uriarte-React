@@ -1,15 +1,8 @@
-import { useCartContext } from "../../Context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
 import "./ItemDetail.css";
 
-function ItemDetail({ productos: producto }) {
-  const { addToCart, cartList } = useCartContext();
-
-  function onAdd(cantidad) {
-    addToCart({ ...producto, cantidad });
-  }
-
+function ItemDetail({ productos: producto, onAdd }) {
   return (
     <div className="cajaDetalle">
       <div className="detailedProduct">
