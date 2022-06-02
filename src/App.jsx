@@ -4,7 +4,7 @@ import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from "./Components/ItemlIstContainer/ItemListContainer";
 import NavBar from "./Components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Cart from "./Components/Cart/Cart";
+import CartContainer from "./Components/CartContainer/CartContainer";
 import CartContextProvider from "./Context/CartContext";
 import PurchaseCompleted from "./Components/PurchaseCompleted/PurchaseCompleted";
 import FooterPagina from "./Components/Footer/FooterPagina";
@@ -25,7 +25,7 @@ function App() {
               path="/detalle/:detalleId"
               element={<ItemDetailContainer />}
             />
-            <Route path="/Cart" element={<Cart />} />
+            <Route path="/Cart" element={<CartContainer />} />
             <Route path="/PurchaseCompleted" element={<PurchaseCompleted />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
