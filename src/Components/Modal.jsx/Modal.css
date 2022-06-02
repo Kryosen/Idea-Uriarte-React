@@ -1,0 +1,171 @@
+.modalBackground {
+  position: fixed;
+  top: 0rem;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.modalContainer {
+  width: 40%;
+  max-height: 50rem;
+  border-radius: 12px;
+  background-color: white;
+  border: 5px solid #489fa3;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.modalCloseButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeButton {
+  width: 2rem;
+  height: auto;
+}
+
+.modalTitle {
+  display: inline-block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 24px;
+}
+
+.formBox {
+  margin-top: 5rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.input + .input {
+  margin-top: 1.5rem;
+}
+
+.input-label {
+  color: #414141;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 1.3rem;
+  transition: 0.25s ease;
+}
+
+.input-field {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 1.125rem;
+  padding: 0.25rem 0;
+}
+.input-field:focus,
+.input-field:valid {
+  outline: 0;
+  border-bottom-color: #5eced4;
+}
+.input-field:focus + .input-label,
+.input-field:valid + .input-label {
+  color: #5eced4;
+  transform: translateY(-1.5rem);
+}
+
+.action {
+  margin-top: 2rem;
+}
+
+.action-button:focus {
+  outline: 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-btnFinishPurchase {
+  /* width: 130px; */
+  margin: 0.3em;
+  height: 40px;
+  padding: 5px 5px;
+  border: 2px solid #5eced4;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 4rem;
+}
+
+.btnFinishPurchase {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btnFinishPurchase:hover {
+  background: #5eced4;
+  color: #fff;
+}
+.btnFinishPurchase:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+}
+
+.custom-btnCancelPuchase {
+  /* width: 130px; */
+  margin: 0.3em;
+  height: 40px;
+  padding: 5px 5px;
+  border: 2px solid #d4645e;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 0.1em;
+}
+
+.btnCancelPuchase {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btnCancelPuchase:hover {
+  background: #d4645e;
+  color: #fff;
+}
+.btnCancelPuchase:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+}

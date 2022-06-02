@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap");
+
+* {
+  font-family: "Baloo Tammudu 2", cursive;
+}
+
 .detailedProduct {
   margin: auto;
 }
 
 .cajaDetalle {
-  width: 55%;
+  width: 45%;
   margin: auto;
   border: 3px solid rgb(209, 208, 208);
   padding-bottom: 1em;
@@ -18,26 +24,31 @@ h3 {
 
 .descriptionProducto {
   margin-bottom: 1.5em;
+  font-size: 26px;
+  font-family: "Baloo Tammudu 2", cursive;
 }
 
 .precioProducto {
   margin-top: 1em;
   font-weight: bold;
   font-size: 28px;
+  font-family: "Baloo Tammudu 2", cursive;
 }
 
 .PriceDescription {
   font-weight: bold;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
+  font-family: "Baloo Tammudu 2", cursive;
 }
 
 .tituloDetalleProducto {
   font-size: 36px;
-  margin: 0.8em;
+  margin: 0.5em;
 }
 
 .ContenedorBody {
   padding-top: 2em;
   background-color: rgb(240, 238, 238);
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 2rem;
 }

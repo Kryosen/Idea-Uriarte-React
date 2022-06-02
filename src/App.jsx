@@ -6,6 +6,8 @@ import NavBar from "./Components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Cart from "./Components/Cart/Cart";
 import CartContextProvider from "./Context/CartContext";
+import PurchaseCompleted from "./Components/PurchaseCompleted/PurchaseCompleted";
+import FooterPagina from "./Components/Footer/FooterPagina";
 
 function App() {
   return (
@@ -24,8 +26,10 @@ function App() {
               element={<ItemDetailContainer />}
             />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/PurchaseCompleted" element={<PurchaseCompleted />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
+          <FooterPagina />
         </div>
       </CartContextProvider>
     </BrowserRouter>

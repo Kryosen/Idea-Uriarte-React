@@ -27,7 +27,6 @@ function ItemDetailContainer() {
               cartList[cartList.findIndex((prod) => prod.id === gonza.id)]
                 .cantidad;
             const stockProd = gonza.stock;
-            console.log(cartQuantity);
             setProductos({ ...gonza, stock: stockProd - cartQuantity });
           } else {
             setProductos(gonza);

@@ -1,12 +1,51 @@
 import { useCartContext } from "../../Context/CartContext";
 import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
-import { useEffect } from "react";
+import { useState } from "react";
 import "./Cart.css";
 import Bin from "../../Assets/bin.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import Modal from "../Modal.jsx/Modal";
 
 function Cart() {
-  const { cartList, emptyCart, removeItemCart } = useCartContext();
+  const { cartList, emptyCart, removeItemCart, setComprobanteCompra } =
+    useCartContext();
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const [clienInfo, setClienInfo] = useState(false);
+
+  let navigate = useNavigate();
+
+  function realizarOrden() {
+    let order = {};
+
+    function goToCompleted() {
+      navigate("/PurchaseCompleted");
+    }
+
+    order.items = cartList.map((prod) => {
+      return { id: prod.id, name: prod.name, price: prod.price };
+    });
+
+    order.total = cartList.reduce(
+      (previousValue, currentValue) =>
+        previousValue + currentValue.price * currentValue.cantidad,
+      0
+    );
+
+    order.buyer = clienInfo;
+
+    setOpenModal(false);
+
+    const db = getFirestore();
+    const queryCollection = collection(db, "orders");
+    addDoc(queryCollection, order)
+      .then((resp) => setComprobanteCompra(resp.id))
+      .then(emptyCart)
+      .catch((err) => console.log(err))
+      .finally(goToCompleted);
+  }
 
   return (
     <div className="ContenedorBodyCarrito">
@@ -64,11 +103,27 @@ function Cart() {
                 )}
             </h2>
             <button
+              className="custom-btnFinishPurchase btnFinishPurchase"
+              onClick={() => {
+                setOpenModal(true);
+              }}
+            >
+              Continuar
+            </button>
+            <button
               onClick={emptyCart}
               className="custom-btnEmptyCart btnEmptyCart"
             >
               Vaciar Carrito
             </button>
+
+            {openModal && (
+              <Modal
+                closeModal={setOpenModal}
+                setClienInfo={setClienInfo}
+                realizarOrden={realizarOrden}
+              />
+            )}
           </>
         ) : (
           <>

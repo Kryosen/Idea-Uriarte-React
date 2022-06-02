@@ -131,6 +131,42 @@
   background-color: #fff;
 }
 
+.custom-btnFinishPurchase {
+  /* width: 130px; */
+  margin: 0.3em;
+  height: 40px;
+  padding: 5px 5px;
+  border: 2px solid #5eced4;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 0.1em;
+}
+
+.btnFinishPurchase {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btnFinishPurchase:hover {
+  background: #5eced4;
+  color: #fff;
+}
+.btnFinishPurchase:before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+}
+
 .custom-btnEmpty {
   /* width: 130px; */
   height: 40px;

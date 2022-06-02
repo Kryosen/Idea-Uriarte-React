@@ -7,6 +7,7 @@ export const useCartContext = () => useContext(CartContext);
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const [categoryIdParams, setCategoryIdParams] = useState("");
+  const [comprobanteCompra, setComprobanteCompra] = useState("");
 
   function addToCart(item) {
     if (cartContainsItem(item)) {
@@ -47,6 +48,8 @@ const CartContextProvider = ({ children }) => {
         removeItemCart,
         categoryIdParams,
         setCategoryIdParams,
+        setComprobanteCompra,
+        comprobanteCompra,
       }}
     >
       {children}

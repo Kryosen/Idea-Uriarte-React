@@ -1,0 +1,32 @@
+.cajaCompraFinalizada {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(240, 238, 238);
+  padding-top: 2rem;
+}
+
+.cajaDatosCompra {
+  margin: auto;
+  width: 50%;
+  height: auto;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  background-color: white;
+}
+
+.comprobanteTitulo {
+  font-size: 60px;
+}
+
+.comprobanteInfo {
+  font-size: 36px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.idCompra {
+  font-size: 42px;
+  color: #5eced4;
+  text-decoration: underline;
+  padding-bottom: 2rem;
+}
