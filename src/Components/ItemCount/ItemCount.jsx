@@ -1,59 +1,56 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Swal from "sweetalert2/dist/sweetalert2.all.js";
+import withReactContent from "sweetalert2-react-content";
+
 import ButtonsEnd from "./ButtonsEnd/ButtonsEnd";
+
 import "./ItemCount.css";
 
-function ItemCount({ stck, inicial, onAdd, btnId, price }) {
-  const [count, setCount] = useState(inicial);
+function ItemCount({ stck, onAdd, btnId, setCount, count }) {
   const [stock, setStock] = useState(stck);
   const [addToCart, setaddToCart] = useState(false);
 
-  useEffect(() => {
-    disableButton();
-  }, [stock]);
-
-  useEffect(() => {
-    document.getElementById(`precio${btnId}`).innerText = `$${price * count}`;
-  }, [count]);
-
-  function buttonHandler() {
-    setaddToCart(true);
-  }
-
-  function changeCount(cambiar) {
-    if (cambiar === "sumar" && count < stock) {
+  //Function that allows the change of the amount of items selected in ItemDetail
+  function changeCount(change) {
+    if (change === "add" && count < stock) {
       setCount(count + 1);
-      document.getElementById(`precio${btnId}`).innerText = `$${price * count}`;
-    } else if (cambiar === "restar" && count > 1) {
+    } else if (change === "remove" && count > 1) {
       setCount(count - 1);
-      document.getElementById(`precio${btnId}`).innerText = `$${price * count}`;
     }
   }
 
-  function agregarAlCarrito() {
+  //Functon to add Items to Cart
+  function addItemToCart() {
     if (stock >= 1) {
-      // console.log(`Se agregaron ${count} packs al carrito`);
+      //SweetAlert Toast while adding items
+      const MySwal = withReactContent(Swal);
+      const Toast = MySwal.mixin({
+        toast: true,
+        width: "24rem",
+        position: "bottom-end",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: `${count}  ${
+          count === 1
+            ? "producto agregado al carrito"
+            : "productos agregados al carrito"
+        } `,
+      });
       onAdd(count);
     }
+
+    //Setting new temporary stock of the item
     setStock(stock - count);
+
     setCount(1);
 
-    if (stock === 0) {
-      document.getElementById(`botonAgregar${btnId}`).disabled = true;
-      document.getElementById(`botonAgregar${btnId}`).innerText = "Sin Stock";
-    }
-    buttonHandler();
-  }
-
-  function disableButton() {
-    if (!addToCart) {
-      if (
-        document.getElementById(`botonAgregar${btnId}`).innerText ===
-        "Sin Stock"
-      ) {
-        document.getElementById(`botonAgregar${btnId}`).disabled = true;
-      }
-    }
+    //Changing buttons after adding to cart
+    setaddToCart(true);
   }
 
   return (
@@ -64,25 +61,26 @@ function ItemCount({ stck, inicial, onAdd, btnId, price }) {
         <>
           <div className="buttonContainer">
             <button
-              className="botonesMasMenos"
-              onClick={() => changeCount(`restar`)}
+              className="plusMinusButtons"
+              onClick={() => changeCount(`remove`)}
             >
               -
             </button>
             <p className="contadorBotones">{count}</p>
             <button
-              className="botonesMasMenos"
-              onClick={() => changeCount(`sumar`)}
+              className="plusMinusButtons"
+              onClick={() => changeCount(`add`)}
             >
               +
             </button>
           </div>
           <button
-            className="custom-btnAgregar btnAgregar"
-            id={`botonAgregar${btnId}`}
-            onClick={agregarAlCarrito}
+            disabled={!stock}
+            className="custom-btnAdd btnAdd"
+            id={`buttonAdd${btnId}`}
+            onClick={addItemToCart}
           >
-            <>{stock === 0 ? "Sin Stock" : "Agregar al Carrito"}</>
+            {stock === 0 ? "Sin Stock" : "Agregar al Carrito"}
           </button>
         </>
       )}

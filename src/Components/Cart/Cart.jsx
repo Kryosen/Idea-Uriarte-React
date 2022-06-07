@@ -1,9 +1,12 @@
 import React from "react";
-import Modal from "../Modal.jsx/Modal";
-import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
-import Bin from "../../Assets/bin.png";
 import { Link } from "react-router-dom";
 
+import Modal from "../Modal/Modal.jsx";
+import Bin from "../../Assets/bin.png";
+
+import "./Cart.css";
+
+//Rendering the cart depending on the amount of items inside
 function Cart({
   setClienInfo,
   setOpenModal,
@@ -11,44 +14,44 @@ function Cart({
   cartList,
   emptyCart,
   removeItemCart,
-  realizarOrden,
+  makeAPurchase,
 }) {
   return (
     <div>
-      <div className="ContenedorCarrito">
+      <div className="cartContainer">
         {cartList.length > 0 ? (
           <>
-            {cartList.map((producto) => (
+            {cartList.map((product) => (
               <>
-                <div className="contenedorItemsCarrito">
+                <div className="cartItemsContainer">
                   <img
-                    src={FotoPaquetes}
+                    src={product.image}
                     alt="Foto Producto"
-                    className="fotoItem"
+                    className="itemPicture"
                   />
                   <div className="containerItemDetail">
                     <div className="containerItemDetailInfo">
-                      <h2 className="tituloProducto">{producto.name}</h2>
-                      <p className="descripcionProducto">
-                        {producto.description}
+                      <h2 className="productName">{product.name}</h2>
+                      <p className="productDescriptionCart">
+                        {product.description}
                       </p>
-                      <p className="descripcionProductoPrice">
-                        {producto.originalPrice}
+                      <p className="productDescriptionPrice">
+                        {product.originalPrice}
                       </p>
-                      <p className="descripcionProductoPrice">
-                        {producto.discountedPrice}
+                      <p className="productDescriptionPrice">
+                        {product.discountedPrice}
                       </p>
                     </div>
                     <div className="containerPriceDetail">
                       <h3 className="prices">
-                        {"X " + producto.cantidad} -
-                        {" $" + producto.price * producto.cantidad}
+                        {"X " + product.quantity} -
+                        {" $" + product.price * product.quantity}
                       </h3>
                     </div>
                   </div>
                   <div
-                    className="ContenedorBotonEliminar"
-                    onClick={() => removeItemCart(producto.id)}
+                    className="deleteButtonContainer"
+                    onClick={() => removeItemCart(product.id)}
                   >
                     <img src={Bin} alt="Eliminar" className="FotoBin" />
                   </div>
@@ -59,7 +62,7 @@ function Cart({
               {"Total - $" +
                 cartList.reduce(
                   (previousValue, currentValue) =>
-                    previousValue + currentValue.price * currentValue.cantidad,
+                    previousValue + currentValue.price * currentValue.quantity,
                   0
                 )}
             </h2>
@@ -82,13 +85,13 @@ function Cart({
               <Modal
                 closeModal={setOpenModal}
                 setClienInfo={setClienInfo}
-                realizarOrden={realizarOrden}
+                makeAPurchase={makeAPurchase}
               />
             )}
           </>
         ) : (
           <>
-            <h2 className="tituloProducto">No hay items en el Carrito</h2>
+            <h2 className="productName">No hay items en el Carrito</h2>
             <Link to="/">
               <button className="custom-btnEmpty btnEmpty">
                 Voler al Menu de compras

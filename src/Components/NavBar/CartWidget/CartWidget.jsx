@@ -1,25 +1,25 @@
 import { NavLink } from "react-router-dom";
+
 import { useCartContext } from "../../../Context/CartContext";
 
 function CartWidget() {
   const { cartList } = useCartContext();
 
-  function cantidadDeProductos() {
+  //Function that changes the number on the Cart Widget
+  function productsQuantity() {
     return cartList.reduce(
-      (previousValue, currentValue) => previousValue + currentValue.cantidad,
+      (previousValue, currentValue) => previousValue + currentValue.quantity,
       0
     );
   }
 
+  //Allowing the Cart Widget to not have number if the CartItems is 0
   return (
     <NavLink to="/Cart" className="linkCartIcon">
       <div className="containerCartIcon">
-        {cantidadDeProductos() ? (
-          <h5 className="cartAmount"> {cantidadDeProductos()}</h5>
-        ) : (
-          <></>
+        {productsQuantity() > 0 && (
+          <h5 className="cartAmount"> {productsQuantity()}</h5>
         )}
-        {/* <img src={CartIcon} className="CartIcon" alt="CartIcon" /> */}
       </div>
     </NavLink>
   );

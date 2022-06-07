@@ -1,0 +1,26 @@
+.heroContainer {
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/mensajeria-la-reja.appspot.com/o/HeroImage%2FheroImage.jpeg?alt=media&token=2b0ace78-6472-4800-9637-163e2a42b984);
+  width: 100%;
+  height: 50rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.tituloHero {
+  font-weight: normal;
+  position: relative;
+  font-size: 64px;
+  color: white;
+}
+
+.captionHero {
+  font-size: 32px;
+  font-weight: normal;
+  position: absolute;
+  bottom: 0;
+  left: 54rem;
+  color: white;
+}

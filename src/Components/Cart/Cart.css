@@ -1,0 +1,10 @@
+.productDescriptionCart {
+  font-size: 1.2rem;
+  font-weight: bold !important;
+  font-family: "Baloo Tammudu 2", cursive;
+  color: #333333;
+}
+
+.productNameCart {
+  font-size: 1.8rem;
+}

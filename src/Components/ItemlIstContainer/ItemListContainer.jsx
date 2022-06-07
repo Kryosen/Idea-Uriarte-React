@@ -1,105 +1,71 @@
-import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
-import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import logoPagina from "../navbar/logoPAgina.jpg";
-// import getFirestore from "../../firebase/config";
 import {
   getFirestore,
-  doc,
-  getDoc,
   collection,
   getDocs,
   query,
   where,
 } from "firebase/firestore";
+
+import ItemList from "../ItemList/ItemList";
+import pageLogo from "../navbar/logoPAgina.jpg";
 import { useCartContext } from "../../Context/CartContext";
 
+import "./ItemListContainer.css";
+import HeroItemList from "../HeroItemList/HeroItemList";
+import ItemListBanner from "../ItemListBanner/ItemListBanner";
+
 function ItemListContainer() {
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { categoriaId } = useParams();
-  const { categoryIdParams, setCategoryIdParams } = useCartContext();
+  const { categoryId } = useParams();
+  const { setCategoryIdParams } = useCartContext();
 
+  // Category change and loading set every time a category change
   useEffect(() => {
-    setCategoryIdParams(categoriaId);
-  }, [categoriaId]);
-
-  useEffect(() => {
+    setCategoryIdParams(categoryId);
     setLoading(true);
-  }, [categoriaId]);
+  }, [categoryId]);
 
+  // Products Fetch to Firestore filtering the products by category if needed
   useEffect(() => {
-    if (categoriaId) {
-      setTimeout(() => {
-        const db = getFirestore();
-        const queryCollection = collection(db, "productos");
-        const queryCollectionFilter = query(
-          queryCollection,
-          where("category", "==", categoriaId)
-        );
-        getDocs(queryCollectionFilter)
-          .then((resp) =>
-            setProductos(
-              resp.docs.map((item) => ({ id: item.id, ...item.data() }))
-            )
-          )
-          .catch((err) => console.log(err))
-          .finally(() => setLoading(false));
-      }, 2000);
-    } else {
-      setTimeout(() => {
-        const db = getFirestore();
-        const queryCollection = collection(db, "productos");
-        getDocs(queryCollection)
-          .then((resp) =>
-            setProductos(
-              resp.docs.map((item) => ({ id: item.id, ...item.data() }))
-            )
-          )
-          .catch((err) => console.log(err))
-          .finally(() => setLoading(false));
-      }, 2000);
-    }
-  }, [categoriaId]);
+    const db = getFirestore();
+    const queryCollection = collection(db, "productos");
+    getDocs(
+      categoryId
+        ? query(queryCollection, where("category", "==", categoryId))
+        : queryCollection
+    )
+      .then((resp) =>
+        setProducts(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
+      )
+      .catch((err) => console.log(err))
+      .finally(() =>
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000)
+      );
+  }, [categoryId]);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  // }, [categoriaId]);
-
-  // if (categoriaId) {
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       fetch("../../src/assets/Productos.json")
-  //         .then((respuesta) => respuesta.json())
-  //         .then((res) =>
-  //           setProductos(res.filter((prod) => prod.category === categoriaId))
-  //         )
-  //         .finally(() => setLoading(false));
-  //     }, 2000);
-  //   }, [categoriaId]);
-  // } else {
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       fetch("../../src/assets/Productos.json")
-  //         .then((respuesta) => respuesta.json())
-  //         .then((res) => setProductos(res))
-  //         .finally(() => setLoading(false));
-  //     }, 3000);
-  //   }, [categoriaId]);
-  // }
-
-  return (
-    <div className="ContenedorBody">
-      {/* {loading ? <h2>Loading...</h2> : <ItemList productos={productos} />} */}
-      {loading ? (
+  // Conditional loader while the Fetch is made
+  if (loading) {
+    return (
+      <div className="bodyContainer">
         <div className="loader">
-          <img src={logoPagina} className="logoCargando" alt="logo" />
+          <img src={pageLogo} className="loadingLogo" alt="logo" />
         </div>
-      ) : (
-        <ItemList productos={productos} />
-      )}
+      </div>
+    );
+  }
+
+  // Item List container modules calling
+  return (
+    <div className="bodyContainer">
+      <HeroItemList />
+      <ItemListBanner categoryId={categoryId} products={products} />
+      <ItemList products={products} />
     </div>
   );
 }

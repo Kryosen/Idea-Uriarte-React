@@ -1,18 +1,17 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ItemCount from "../ItemCount/ItemCount";
-import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
+
 import "./Item.css";
 
-function Item({ producto }) {
+//Receiving the parameters from product and rendering the cards
+function Item({ product }) {
   return (
-    <div className="cajasItems">
-      <img src={FotoPaquetes} alt="Foto Paquetes" />
-      <div className="cajasItemsText">
-        <p className="nombresCajas">{producto.name}</p>
-        <Link to={`/detalle/${producto.id}`}>
-          <button className="botonDetalle custom-btn btnDetalle ">
-            <span>Detalle</span>
+    <div className="itemsContainers">
+      <img src={product.image} alt="Foto Paquetes" />
+      <div className="itemsContainersText">
+        <p className="namesBox">{product.name}</p>
+        <Link to={`/detalle/${product.id}`}>
+          <button className="detailButton custom-btn btnDetail">
+            <span className="buttonDetail">Detalle</span>
           </button>
         </Link>
       </div>

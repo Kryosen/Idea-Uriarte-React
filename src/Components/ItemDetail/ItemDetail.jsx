@@ -1,26 +1,26 @@
 import ItemCount from "../ItemCount/ItemCount";
-import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
+
 import "./ItemDetail.css";
 
-function ItemDetail({ productos: producto, onAdd }) {
+//Rendering of ItemDetail
+function ItemDetail({ products, onAdd, setCount, count }) {
   return (
-    <div className="cajaDetalle">
+    <div className="detailBox">
       <div className="detailedProduct">
-        <img src={FotoPaquetes} alt="Foto Paquetes" />
-        <h3 className="tituloDetalleProducto">{producto.name}</h3>
-        <p className="descriptionProducto">{producto.description}</p>
-        <p className="PriceDescription">{producto.originalPrice}</p>
-        <p className="PriceDescription">{producto.discountedPrice}</p>
-        <p
-          className="precioProducto"
-          id={`precio${producto.id}`}
-        >{`$${producto.price}`}</p>
+        <img src={products.image} alt="Foto Paquetes" />
+        <h3 className="productDetailName">{products.name}</h3>
+        <p className="productDescription">{products.description}</p>
+        <p className="priceDescription">{products.originalPrice}</p>
+        <p className="priceDescription">{products.discountedPrice}</p>
+        <p className="productPrice" id={`price${products.id}`}>{`$${
+          products.price * count
+        }`}</p>
         <ItemCount
-          btnId={producto.id}
-          price={producto.price}
-          stck={producto.stock}
-          inicial={1}
+          btnId={products.id}
+          stck={products.stock}
           onAdd={onAdd}
+          setCount={setCount}
+          count={count}
         />
       </div>
     </div>

@@ -1,0 +1,23 @@
+.bannerItems {
+  margin-top: 0.5rem;
+  margin-left: 21%;
+  margin-right: 21%;
+  height: 6rem;
+  background-color: #5eced4;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bannerCategory {
+  padding-left: 1.5rem;
+  padding-top: 1.6rem;
+  color: white;
+  text-align: start;
+}
+
+.bannerAmount {
+  padding-right: 1.5rem;
+  padding-top: 1.6rem;
+  color: white;
+  text-align: start;
+}

@@ -1,19 +1,21 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
+
 import "./Modal.css";
 
-export default function Modal({ closeModal, setClienInfo, realizarOrden }) {
-  const [inputs, setInputs] = useState({});
+export default function Modal({ closeModal, setClienInfo, makeAPurchase }) {
+  let inputs = {};
 
+  //Receiving the Values of the form and saving them in variables
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setClienInfo((values) => ({ ...values, [name]: value }));
   };
 
+  //Using the variables set and creating a purchase order
   const handleSubmit = (event) => {
     event.preventDefault();
-    realizarOrden();
+    makeAPurchase();
   };
 
   return (
@@ -58,8 +60,11 @@ export default function Modal({ closeModal, setClienInfo, realizarOrden }) {
             </div>
             <div className="input">
               <input
-                type="number"
+                type="tel"
+                pattern="[1]{2}[0-9]{8}"
+                maxLength="10"
                 className="input-field"
+                title="Ingresa tu numero comenzando con 11 y sin 15"
                 name="tel"
                 value={inputs.tel}
                 onChange={handleChange}
@@ -69,47 +74,11 @@ export default function Modal({ closeModal, setClienInfo, realizarOrden }) {
             </div>
             <div className="action">
               <button className="custom-btnFinishPurchase btnFinishPurchase">
-                {/* <NavLink to="/PurchaseCompleted" className="navBarLink"> */}
                 Finalizar Compra
-                {/* </NavLink> */}
               </button>
             </div>
-            {/* <label class="form-group">
-              <input
-                className="inputBoxes"
-                type="text"
-                name="username"
-                value={inputs.username || ""}
-                onChange={handleChange}
-              />
-              <span className="spansForm">Nombre</span>
-              <span className="borderSpan"></span>
-            </label>
-            <label>
-              Enter your age:
-              <input
-                className="inputBoxes"
-                type="number"
-                name="age"
-                value={inputs.age || ""}
-                onChange={handleChange}
-              />
-            </label> */}
           </form>
         </div>
-        {/* <div className="modalFooter">
-          <button className="custom-btnFinishPurchase btnFinishPurchase">
-            Finalizar Compra
-          </button>
-          <button
-            className="custom-btnCancelPuchase btnCancelPuchase"
-            onClick={() => {
-              closeModal(false);
-            }}
-          >
-            Cancelar
-          </button>
-        </div> */}
       </div>
     </div>
   );

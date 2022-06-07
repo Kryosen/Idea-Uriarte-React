@@ -2,7 +2,7 @@ footer {
   background-color: #5eced4;
 }
 
-.contenedortFooter {
+.footerContainer {
   margin-left: 20%;
   margin-right: 20%;
   padding-top: 1rem;
@@ -10,16 +10,12 @@ footer {
   justify-content: space-between;
 }
 
-/* .cajasFooter1 {
-  margin-right: 55rem;
-} */
-
-.cajasFooter2 {
+.footerBoxes2 {
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.contenedorTYC {
+.TYCContainer {
   width: auto;
   height: 35%;
   display: flex;
@@ -34,12 +30,18 @@ footer {
   font-weight: normal;
 }
 
-.direccion {
+.adress {
+  display: flex;
   margin-top: 0.5rem;
   margin-left: 1rem;
   color: #f0f0f0;
   font-size: 18px;
   font-weight: normal;
+  justify-content: center;
+}
+
+.iconLocation {
+  width: 1.5rem;
 }
 
 .copyright {
@@ -49,13 +51,16 @@ footer {
   font-weight: normal;
 }
 
-.listaFotos {
+.picturesList {
   display: flex;
   list-style: none;
+  margin-right: 2rem;
 }
 
 .iconsItems {
-  margin: 1rem;
+  width: 2.3rem;
+  /* margin: 1rem; */
+  margin-right: 2rem;
   font-size: 18px;
   color: #f0f0f0;
 }

@@ -2,7 +2,7 @@
   background-color: #5eced4;
 }
 
-.contenedorHeader {
+.headerContainer {
   display: flex;
   margin-left: 20%;
   margin-right: 20%;
@@ -12,7 +12,7 @@
   width: 7em;
   border-radius: 100%;
   margin: auto;
-  margin-top: 0.5em;
+  margin-top: 1em;
 }
 
 .navBar {
@@ -106,12 +106,12 @@ a:hover {
   display: inline-block;
 }
 
-.btn-13 {
+.btnCustom {
   background: #5eced4;
   color: #fff;
   z-index: 1;
 }
-.btn-13:after {
+.btnCustom:after {
   position: absolute;
   content: "";
   width: 100%;
@@ -122,14 +122,14 @@ a:hover {
   background: #ffffff;
   transition: all 0.3s ease;
 }
-.btn-13:hover {
+.btnCustom:hover {
   color: #5eced4;
 }
-.btn-13:hover:after {
+.btnCustom:hover:after {
   top: 0;
   height: 100%;
 }
-.btn-13:active {
+.bbtnCustom:active {
   top: 2px;
 }
 

@@ -13,7 +13,7 @@
 
 .modalContainer {
   width: 40%;
-  max-height: 50rem;
+  max-height: 80vh;
   border-radius: 12px;
   background-color: white;
   border: 5px solid #489fa3;

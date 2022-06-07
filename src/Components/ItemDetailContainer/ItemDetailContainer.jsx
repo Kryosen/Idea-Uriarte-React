@@ -1,55 +1,76 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import logoPagina from "../navbar/logoPAgina.jpg";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+
+import ItemDetail from "../ItemDetail/ItemDetail";
 import { useCartContext } from "../../Context/CartContext";
+import pageLogo from "../navbar/logoPAgina.jpg";
 
 function ItemDetailContainer() {
-  const [productos, setProductos] = useState({});
+  const [products, setproducts] = useState({});
   const [loading, setLoading] = useState(true);
+  const [count, setCount] = useState(1);
 
   const { cartList, addToCart } = useCartContext();
 
-  const { detalleId } = useParams();
+  const { detailId } = useParams();
 
+  //Fetch to Firestore of the product selected in item. Also the Stock of the product changes depending of the amount of items in the Cart
   useEffect(() => {
-    setTimeout(() => {
-      const db = getFirestore();
-      const dbQuery = doc(db, "productos", detalleId);
-      getDoc(dbQuery)
-        .then((resp) => {
-          const gonza = { id: resp.id, ...resp.data() };
+    const db = getFirestore();
+    const dbQuery = doc(db, "productos", detailId);
+    getDoc(dbQuery)
+      .then((resp) => {
+        const productsReceived = { id: resp.id, ...resp.data() };
 
-          if (cartList.some((producto) => producto.id === gonza.id)) {
-            const cartQuantity =
-              cartList[cartList.findIndex((prod) => prod.id === gonza.id)]
-                .cantidad;
-            const stockProd = gonza.stock;
-            setProductos({ ...gonza, stock: stockProd - cartQuantity });
-          } else {
-            setProductos(gonza);
-          }
-        })
-        .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
-    }, 2000);
+        if (cartList.some((prod) => prod.id === productsReceived.id)) {
+          const cartQuantity =
+            cartList[
+              cartList.findIndex((prod) => prod.id === productsReceived.id)
+            ].quantity;
+          const stockProd = productsReceived.stock;
+          setproducts({
+            ...productsReceived,
+            stock: stockProd - cartQuantity,
+          });
+        } else {
+          setproducts(productsReceived);
+        }
+      })
+      .catch((err) => console.log(err))
+      .finally(() =>
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000)
+      );
   }, []);
 
-  function onAdd(cantidad) {
-    addToCart({ ...productos, cantidad });
+  //Function  from the CartContext to add products to the Cart
+  function onAdd(quantity) {
+    addToCart({ ...products, quantity });
   }
 
-  return (
-    <div className="ContenedorBody">
-      {loading ? (
+  //Conditional loader while the Fetch is made
+  if (loading) {
+    return (
+      <div className="bodyContainer">
         <div className="loader">
-          <img src={logoPagina} className="logoCargando" alt="logo" />
+          <img src={pageLogo} className="loadingLogo" alt="logo" />
         </div>
-      ) : (
-        <ItemDetail productos={productos} onAdd={onAdd} />
-      )}
+      </div>
+    );
+  }
+
+  //Calling on ItemDetail with the parameters received from the Fetch
+  return (
+    <div className="bodyContainer">
+      <ItemDetail
+        products={products}
+        onAdd={onAdd}
+        setCount={setCount}
+        count={count}
+      />
     </div>
   );
 }

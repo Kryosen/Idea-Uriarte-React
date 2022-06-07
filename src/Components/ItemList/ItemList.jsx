@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
 import Item from "../Item/Item";
-import FotoPaquetes from "../ItemlIstContainer/Paquetes.jpg";
+
 import "./ItemList.css";
 
-function ItemList({ productos }) {
+//Receiving the Products and mapping them into Cards to show in the container
+function ItemList({ products }) {
   return (
-    <div className="cajaProductos">
-      {productos.map((producto) => (
-        <Item producto={producto} key={producto.id} />
+    <div className="productsBox">
+      {products.map((product) => (
+        <Item product={product} key={product.id} />
       ))}
     </div>
   );

@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import ItemListContainer from "./Components/ItemlIstContainer/ItemListContainer";
 import NavBar from "./Components/NavBar/NavBar";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CartContainer from "./Components/CartContainer/CartContainer";
 import CartContextProvider from "./Context/CartContext";
 import PurchaseCompleted from "./Components/PurchaseCompleted/PurchaseCompleted";
-import FooterPagina from "./Components/Footer/FooterPagina";
+import FooterPage from "./Components/Footer/FooterPagina";
+
+import "./App.css";
 
 function App() {
   return (
@@ -18,18 +19,18 @@ function App() {
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route
-              path="/categoria/:categoriaId"
+              path="/categoria/:categoryId"
               element={<ItemListContainer />}
             />
             <Route
-              path="/detalle/:detalleId"
+              path="/detalle/:detailId"
               element={<ItemDetailContainer />}
             />
             <Route path="/Cart" element={<CartContainer />} />
             <Route path="/PurchaseCompleted" element={<PurchaseCompleted />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
-          <FooterPagina />
+          <FooterPage />
         </div>
       </CartContextProvider>
     </BrowserRouter>

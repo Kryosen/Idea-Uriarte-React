@@ -1,23 +1,35 @@
-import { useCartContext } from "../../Context/CartContext";
 import { useState } from "react";
-import "./Cart.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+
+import { useCartContext } from "../../Context/CartContext";
 import Cart from "../Cart/Cart.jsx";
 
+import "./Cart.css";
+
 function CartContainer() {
-  const { cartList, emptyCart, removeItemCart, setComprobanteCompra } =
-    useCartContext();
+  const {
+    cartList,
+    emptyCart,
+    removeItemCart,
+    setPurchaseTicket,
+    setCategoryIdParams,
+  } = useCartContext();
 
   const [openModal, setOpenModal] = useState(false);
 
   const [clienInfo, setClienInfo] = useState(false);
 
+  //Setting the Category used to conditional Rendering
+  setCategoryIdParams(useParams());
+
   let navigate = useNavigate();
 
-  function realizarOrden() {
+  //Obtaining the data from different parts of the code to create the Purchase Order
+  function makeAPurchase() {
     let order = {};
 
+    //Navigating to the PurchaseCompleted page with the information for the Client
     function goToCompleted() {
       navigate("/PurchaseCompleted");
     }
@@ -34,19 +46,21 @@ function CartContainer() {
 
     order.buyer = clienInfo;
 
+    //Closing modal
     setOpenModal(false);
 
+    //Adding the purchase information to the Firestore Database
     const db = getFirestore();
     const queryCollection = collection(db, "orders");
     addDoc(queryCollection, order)
-      .then((resp) => setComprobanteCompra(resp.id))
+      .then((resp) => setPurchaseTicket(resp.id))
       .then(emptyCart)
       .catch((err) => console.log(err))
       .finally(goToCompleted);
   }
 
   return (
-    <div className="ContenedorBodyCarrito">
+    <div className="cartBodyContainer">
       <Cart
         setClienInfo={setClienInfo}
         setOpenModal={setOpenModal}
@@ -54,7 +68,7 @@ function CartContainer() {
         cartList={cartList}
         emptyCart={emptyCart}
         removeItemCart={removeItemCart}
-        realizarOrden={realizarOrden}
+        makeAPurchase={makeAPurchase}
       />
     </div>
   );
